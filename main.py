@@ -26,18 +26,23 @@ class ClaudeMod:
                     joke = await jokes_maker()
                     await message.reply(joke)
                 elif command == 'weather':
-                    city = message.text.split(maxsplit=1)[1]
-                    weather_info = await weather(city)
-                    await message.reply(weather_info)
+                    if len(message.text.split()) > 1:  # Check if a city name is provided
+                        city = message.text.split(maxsplit=1)[1]
+                        weather_info = await weather(city)
+                        await message.reply(weather_info)
+                    else:
+                        await message.reply("Please provide a city name.")
                 # Add more command handlers here
-            
             await handle_group_message(message)
 
         print("CLAUDE MOD is now running!")
         await self.client.run()
 
+    async def main(self):
+        connection_method = input("Choose connection method (qr/pairing_code): ")
+        await self.connect(connection_method)
+        await self.start()
+
 if __name__ == "__main__":
     bot = ClaudeMod()
-    connection_method = input("Choose connection method (qr/pairing_code): ")
-    asyncio.run(bot.connect(connection_method))
-    asyncio.run(bot.start())
+    asyncio.run(bot.main())
