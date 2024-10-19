@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with WhatsApp Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #00ff00; /* Green color for Matrix effect */
+            background: url('https://wallpaperaccess.com/full/2167496.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 20px;
+            text-shadow: 0 0 10px #00ff00;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .code-container {
+            margin: 20px;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            animation: fadeIn 2s;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        /* Animation for glowing text */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+            100% {
+                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+        }
+
+        /* Animation for fading in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #00ff00;
+            font-size: 14px;
+            animation: fadeIn 3s;
+        }
+
+        .phone-input {
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: #00ff00;
+            background: transparent;
+            outline: none;
+            animation: glowingInput 1.5s infinite alternate;
+        }
+
+        @keyframes glowingInput {
+            0% {
+                border-color: #00ff00;
+            }
+            100% {
+                border-color: rgba(0, 255, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Connect with Your WhatsApp Bot</h1>
+    <div class="code-container">
+        <h2>Pairing Code:</h2>
+        <p>{{ pairing_code }}</p>
+        <h2>QR Code:</h2>
+        <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+        <div>
+            <input type="text" class="phone-input" placeholder="Enter your phone number here" />
+        </div>
+    </div>
+    <p>Scan the QR code with your WhatsApp application or use the pairing code above.</p>
+    <footer class="footer">
+        Designed by Traby Qriz, Transforming Lives
+    </footer>
+</body>
+</html>
